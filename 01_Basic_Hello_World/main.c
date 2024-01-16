@@ -5,6 +5,12 @@
  * 
 */
 
+/* 
+ * printk: Kernel-space print function. 
+ * When this function runs, messages are buffered in kernel ring buffer (kernel log).
+ * When "dmesg" command is called, those messages are displayed.
+*/ 
+
 #include <linux/module.h>
 
 static int __init helloworld_init(void) {
