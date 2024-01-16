@@ -52,6 +52,11 @@ make -C $KERNEL_DIR M=$SOURCE_DIR [Options]
               + **help**:List the available targets for external modules.
 
 #### Creating a host Makefile
+
+- obj-m: Compile as dynamically
+- obj-n: Do not compile
+- obj-y: Compile and link woth kernel image
+
 ```shell
 obj-m := main.o
 
