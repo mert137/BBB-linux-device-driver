@@ -4,7 +4,7 @@
   + Character device drivers: RTC, keyboard, sensors..., bye by byte (not as a chunk of data)
   + Block drivers: data in chunks
   + Network device drivers: Network devices
-- Device files: in /dev fdirectory, devices are accessed throug those fils
+- Device files: in /dev directory, devices are accessed through those files
 - Sophisticated buffering strategies are usually not involved in char drivers. Because when you write 1 byte, it directly goes to the device without any intermediate buffering, delayed write back, dirty buffer management.
 - Char devices: sensors, RTC, keyboard, serial port, parallel port,...etc.
 
