@@ -53,11 +53,6 @@ make -C $KERNEL_DIR M=$SOURCE_DIR [Options]
 
 #### Creating a host Makefile
 
-- obj-m: Compile as dynamically
-- obj-n: Do not compile
-- obj-y: Compile and link woth kernel image
-
-
 - The first thing to do is to install Linux kernel header files that perfectly align with the Linux kernel distribution on your device or machine.
 - The `uname` command provides a long description (-a for all) and a kernel release output (-r for release) as follows:
 ```shell
@@ -79,6 +74,9 @@ root@beaglebone:/lib/modules/4.14.108-ti-r113# ls -l build
 lrwxrwxrwx 1 root root 39 Jul 31  2019 build -> /usr/src/linux-headers-4.14.108-ti-r113
 ```
 - Creating a makefile
+- obj-m: Compile as dynamically
+- obj-n: Do not compile
+- obj-y: Compile and link woth kernel image
 ```shell
 obj-m := main.o
 
