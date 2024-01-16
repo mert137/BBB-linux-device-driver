@@ -56,7 +56,7 @@ alloc_chrdev_region(&device_number, 0, 1, "pcd_devices");
 void cdev_init (struct cdev *cdev, const struct file_operations *fops)
 ```
 + **struct cdev \*cdev**: the structure to initialize
-+ **const struct file_operations \*fops**: the file operations for this device (open, read, write, lseek, mmap, flush,...). This struct contains all the functions related to I/O (open, read, write, lseek...)
++ **const struct file_operations \*fops**: the file operations for this device (open, read, write, lseek, mmap, flush,...)
 + `THIS_MODULE` is a macro which resolves in to "pointer to a struct module variable which corresponds to our current module"
 
 **- cdev_add - add a char device to the system**
