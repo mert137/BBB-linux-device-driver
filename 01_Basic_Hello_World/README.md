@@ -11,6 +11,16 @@ calls etc. (modular approach)
 
 - **Dynamic** (m): When you build a Linux kernel, these modules are **NOT built** into the final kernel image, and rather there are compiled and linked separately to produce `.ko` files. You can dynamically **load** and **unload** these modules from the kernel using user space programs such as `insmod`, `modprobe`, `rmmod`.
 
+- Kernel header files generally located in /include/linux
+- No user space library is linked to the kernel module (like C std lib)
+- Module initialization function gets called during boot time if static.
+- Module initialization function gets called during module insertion if dynamic.
+- Module exit function gets called when module is removed. (rmmod)
+- No need to implement this function if static because does not called.
+- Free memory if you allocated, de-init or close devices that you inited.
+- Once __init function is called, it is freed from memory because runs only once.
+- Module entry points registration are not functions, they are macros defined in /linux/module.h
+- If __init function returns any value other than 0, then it will not be loaded.
 
 ## 2. Building a kernel module
 - Two ways:
