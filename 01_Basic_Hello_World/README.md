@@ -76,7 +76,7 @@ lrwxrwxrwx 1 root root 39 Jul 31  2019 build -> /usr/src/linux-headers-4.14.108-
 - Creating a makefile
   + obj-m: Compile as dynamically
   + obj-n: Do not compile
-  + obj-y: Compile and link woth kernel image
+  + obj-y: Compile and link with kernel image
 ```shell
 obj-m := main.o
 
