@@ -57,23 +57,7 @@ make -C $KERNEL_DIR M=$SOURCE_DIR [Options]
 - obj-n: Do not compile
 - obj-y: Compile and link woth kernel image
 
-```shell
-obj-m := main.o
 
-ARCH=arm
-CC=arm-linux-gnueabihf-
-KERNEL_DIR=/<prebuilt_kernel_source_dir>/
-
-all:
-  make ARCH=$(ARCH) CROSS_COMIPLE=$(CC) -C $(KERNEL_DIR) M=$(shell pwd) modules
-clean:
-  make ARCH=$(ARCH) CROSS_COMIPLE=$(CC) -C $(KERNEL_DIR) M=$(shell pwd) clean
-help:
-  make ARCH=$(ARCH) CROSS_COMIPLE=$(CC) -C $(KERNEL_DIR) M=$(shell pwd) help
-```
-
-
-#### Creating a target Makefile
 - The first thing to do is to install Linux kernel header files that perfectly align with the Linux kernel distribution on your device or machine.
 - The `uname` command provides a long description (-a for all) and a kernel release output (-r for release) as follows:
 ```shell
@@ -107,6 +91,25 @@ clean:
 help:
   make -C $(KERNEL_DIR) M=$(shell pwd) help
 ```
+
+
+#### Creating a target Makefile
+
+```shell
+obj-m := main.o
+
+ARCH=arm
+CC=arm-linux-gnueabihf-
+KERNEL_DIR=/<prebuilt_kernel_source_dir>/
+
+all:
+  make ARCH=$(ARCH) CROSS_COMIPLE=$(CC) -C $(KERNEL_DIR) M=$(shell pwd) modules
+clean:
+  make ARCH=$(ARCH) CROSS_COMIPLE=$(CC) -C $(KERNEL_DIR) M=$(shell pwd) clean
+help:
+  make ARCH=$(ARCH) CROSS_COMIPLE=$(CC) -C $(KERNEL_DIR) M=$(shell pwd) help
+```
+
 ### 2.1.2 In tree module (host)
 - Steps to add in-tree module to kernel menu configuration (character)
 
